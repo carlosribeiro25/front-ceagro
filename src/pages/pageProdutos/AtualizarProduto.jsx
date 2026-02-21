@@ -20,7 +20,6 @@ export default function AtualizarProduto() {
 
     const [buscaId, setBuscaId] = useState("");
     const [idAtivo, setIdAtivo] = useState(null);
-    const [name, setNome] = useState("")
     const [form, setForm] = useState({
         name: "",
         QNT: "",
