@@ -12,7 +12,6 @@ const buscarProdutoPorId = async (id) => {
 const atualizarProduto = async ({ id, ...payload }) => {
     const { data } = await api.put(`/produtos/${id}`, payload);
     return data;
-
 };
 
 export default function AtualizarProduto() {

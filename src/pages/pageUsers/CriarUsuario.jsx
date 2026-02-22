@@ -36,9 +36,25 @@ export default function CriarUsuario() {
         },
     });
 
+    const formatarTelefone = (valor) => {
+    const numeros = valor.replace(/\D/g, "").slice(0, 11);
+
+    if (numeros.length <= 10) {
+        return numeros
+            .replace(/(\d{2})(\d)/, "($1) $2")
+            .replace(/(\d{4})(\d)/, "$1-$2");
+    }
+
+    return numeros
+        .replace(/(\d{2})(\d)/, "($1) $2")
+        .replace(/(\d{5})(\d)/, "$1-$2");
+    };
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setForm((prev) => ({ ...prev, [name]: value }));
+        const formatFone = name === "telefone" ? formatarTelefone(value) : value;
+        setForm((prev) => ({ ...prev, [name]: formatFone }));
     };
 
     const handleSubmit = (e) => {

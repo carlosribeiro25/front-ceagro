@@ -1,23 +1,11 @@
-import { api } from "../../lib/Api";
-import { useQueryClient, useMutation, useQuery } from "@tanstack/react-query";
-import { Link } from "react-router-dom";
-
-const buscarProdutos = async () => {
-    const { data } = await api.get('/produtos');
-    return data.produtos;
-}
 
 const deletarProduto = async (id) => {
     await api.delete(`/produtos/${id}`);
 }
 
 export default function DeleteProduct() {
-    const queryClient = useQueryClient();
 
-    const { data: produtos, isLoading, isError } = useQuery({
-        queryKey: ['produtos'],
-        queryFn: buscarProdutos,
-    })
+    
 
     const mutation = useMutation({
         mutationFn: deletarProduto,

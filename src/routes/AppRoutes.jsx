@@ -10,6 +10,8 @@ import AtualizarProduto from '../pages/pageProdutos/AtualizarProduto'
 import CriarUsuario from '../pages/pageUsers/CriarUsuario'
 import DeletarUsuario from '../pages/pageUsers/DeletarUsuario'
 import AtualizarUsuario from '../pages/pageUsers/AtualizarUsuario'
+import ListaProdutos from '../pages/pageProdutos/ListarProdutos'
+import { ListProduct } from '../pages/pageProdutos/ListProducts'
 
 export default function AppRoutes() {
     return (
@@ -28,19 +30,31 @@ export default function AppRoutes() {
                 </PrivateRoute>
             } />
 
-            <Route path='/criarProduto' element={
+            <Route path='/produtos/listarProdutos' element={
+                <PrivateRoute>
+                    <ListaProdutos />
+                </PrivateRoute>
+            } />
+
+            <Route path='/produtos/listProduct' element={
+                <PrivateRoute>
+                    <ListProduct />
+                </PrivateRoute>
+            } />
+
+            <Route path='/produtos/cadastrarProduto' element={
                 <PrivateRoute>
                     <CriarProduto/>
                 </PrivateRoute>
             } />
 
-            <Route path='/deletarProduto' element={
+            <Route path='/produtos/deletarProduto' element={
                 <PrivateRoute>
                     <DeletarProduto/>
                 </PrivateRoute>
             } />
 
-            <Route path='/atualizarProduto' element={
+            <Route path='/produtos/atualizarProduto' element={
                 <PrivateRoute>
                     <AtualizarProduto/>
                 </PrivateRoute>
@@ -52,19 +66,19 @@ export default function AppRoutes() {
                 </PrivateRoute>
             } />
 
-            <Route path='/criarUsuario' element={
+            <Route path='/usuarios/cadastrarUsuarios' element={
                 <PrivateRoute>
                     <CriarUsuario/>
                 </PrivateRoute>
             } />
 
-            <Route path='/atualizarUsuario' element={
+            <Route path='/usuarios/atualizarUsuario' element={
                 <PrivateRoute>
                     <AtualizarUsuario/>
                 </PrivateRoute>
             } />
 
-            <Route path='/deletarUsuario' element={
+            <Route path='/usuarios/deletarUsuario' element={
                 <PrivateRoute>
                     <DeletarUsuario/>
                 </PrivateRoute>

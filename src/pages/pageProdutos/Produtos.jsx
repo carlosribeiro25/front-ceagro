@@ -5,19 +5,12 @@ import { Link} from "react-router-dom";
 
 export default function Produtos() {
     
-    const token = localStorage.getItem("token");
-
     const {data, isLoading, error, isError} = useQuery({
         
         queryKey: ['produtos'],
         queryFn: async () => {
-            const response = await api.get('/produtos', {
-                headers: {
-                   Authorization: `Bearer ${token}` 
-                }
-            })
-            console.log(response.data)
-            
+            const response = await api.get('/produtos')
+            console.log(response.data)         
             return response.data.produtos
         },
         refetchOnWindowFocus: false
@@ -45,8 +38,15 @@ export default function Produtos() {
                     <p>{produto.QNT}</p>
                     <p>{produto.D1}</p>
                     <p>{produto.D2}</p>
+                    <input type="checkbox" name="" id="" />
                 </div>
             ))}
         </div>
     )
 }
+
+// {
+//                 headers: {
+//                    Authorization: `Bearer ${token}` 
+//                 }
+//             }
