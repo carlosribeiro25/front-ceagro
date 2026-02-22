@@ -12,6 +12,7 @@ import DeletarUsuario from '../pages/pageUsers/DeletarUsuario'
 import AtualizarUsuario from '../pages/pageUsers/AtualizarUsuario'
 import ListaProdutos from '../pages/pageProdutos/ListarProdutos'
 import { ListProduct } from '../pages/pageProdutos/ListProducts'
+import Recebidos from '../pages/pageProdutos/Recebidos'
 
 export default function AppRoutes() {
     return (
@@ -53,6 +54,11 @@ export default function AppRoutes() {
                     <DeletarProduto/>
                 </PrivateRoute>
             } />
+            <Route path='/produtos/recebidos' element={
+                <PrivateRoute>
+                    <Recebidos/>
+                </PrivateRoute>
+            } />
 
             <Route path='/produtos/atualizarProduto' element={
                 <PrivateRoute>
@@ -83,6 +89,7 @@ export default function AppRoutes() {
                     <DeletarUsuario/>
                 </PrivateRoute>
             } />
+
 
             
 

@@ -2,7 +2,6 @@ import { api } from "../../lib/Api";
 import { useState } from "react";
 import { useQueryClient, useMutation, useQuery } from "@tanstack/react-query";
 
-
 const buscarProdutoPorId = async (id) => {
     const { data } = await api.get(`/produtos/${id}`);
     console.log("retorno da api", data)

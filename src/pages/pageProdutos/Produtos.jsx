@@ -38,15 +38,8 @@ export default function Produtos() {
                     <p>{produto.QNT}</p>
                     <p>{produto.D1}</p>
                     <p>{produto.D2}</p>
-                    <input type="checkbox" name="" id="" />
                 </div>
             ))}
         </div>
     )
 }
-
-// {
-//                 headers: {
-//                    Authorization: `Bearer ${token}` 
-//                 }
-//             }

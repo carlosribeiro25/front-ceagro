@@ -2,7 +2,6 @@ import { api } from "../../lib/Api";
 import { useState } from "react";
 import { useQueryClient, useMutation, useQuery } from "@tanstack/react-query";
 
-// ─── Funções de API ────────────────────────────────────────────────────────────
 const buscarProdutos = async () => {
     const { data } = await api.get("/produtos");
     return data.produtos;
@@ -13,7 +12,6 @@ const atualizarProduto = async ({ id, ...payload }) => {
     return data;
 };
 
-// ─── Componente de linha editável ──────────────────────────────────────────────
 function ProdutoRow({ produto }) {
     const queryClient = useQueryClient();
 
@@ -29,7 +27,6 @@ function ProdutoRow({ produto }) {
     const mutation = useMutation({
         mutationFn: atualizarProduto,
 
-        // Optimistic update: atualiza o cache antes da resposta da API
         onMutate: async ({ id, ...payload }) => {
             await queryClient.cancelQueries({ queryKey: ["produtos"] });
 
@@ -43,7 +40,6 @@ function ProdutoRow({ produto }) {
         },
 
         onError: (error, variables, context) => {
-            // Desfaz a atualização otimista em caso de erro
             queryClient.setQueryData(["produtos"], context.snapshot);
             console.error("Erro ao atualizar:", error);
         },
@@ -67,7 +63,6 @@ function ProdutoRow({ produto }) {
     };
 
     const handleCancelar = () => {
-        // Restaura os valores originais do produto
         setForm({
             name: produto.name ?? "",
             QNT:  produto.QNT  ?? "",
@@ -79,11 +74,10 @@ function ProdutoRow({ produto }) {
     };
 
     return (
-        <tr>
-            <td>{produto.id}</td>
+        <tr className="gap-2">
+            <td >{produto.id}</td>
 
-            {/* Alterna entre texto e input conforme modo de edição */}
-            <td>
+            <td >
                 {editando
                     ? <input name="name" value={form.name} onChange={handleChange} />
                     : produto.name
@@ -107,8 +101,7 @@ function ProdutoRow({ produto }) {
                     : produto.D2
                 }
             </td>
-
-            {/* Feedback de erro inline */}
+           
             {mutation.isError && (
                 <td>
                     <span>
@@ -117,7 +110,6 @@ function ProdutoRow({ produto }) {
                 </td>
             )}
 
-            {/* Ações */}
             <td>
                 {editando ? (
                     <>
@@ -145,7 +137,6 @@ function ProdutoRow({ produto }) {
     );
 }
 
-// ─── Componente principal ──────────────────────────────────────────────────────
 export default function ListaProdutos() {
     const { data: produtos, isLoading, isError, error } = useQuery({
         queryKey: ["produtos"],

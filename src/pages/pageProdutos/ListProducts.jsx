@@ -16,7 +16,6 @@ export function ListProduct() {
             <input
               type="checkbox"
               checked={produto.recebido}
-              disabled={isPending}
               onChange={(e) =>
                 toggleRecebido({ id: produto.id, recebido: e.target.checked })
               }
