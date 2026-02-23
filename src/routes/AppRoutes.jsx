@@ -78,6 +78,12 @@ export default function AppRoutes() {
                 </PrivateRoute>
             } />
 
+             <Route path='/login/usuarios/cadastrarUsuarios' element={
+                <PrivateRoute>
+                    <CriarUsuario/>
+                </PrivateRoute>
+            } />
+
             <Route path='/usuarios/atualizarUsuario' element={
                 <PrivateRoute>
                     <AtualizarUsuario/>

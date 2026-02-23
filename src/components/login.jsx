@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { api } from '../lib/Api';
 import { useNavigate} from 'react-router-dom'
 import { InputText } from "primereact/inputtext";
+import { Link } from 'react-router-dom';
 
  export default function Login() {
 
@@ -29,14 +30,16 @@ import { InputText } from "primereact/inputtext";
        } 
 }
 
+   
 
  return (
-        <form className='border mt-20 max-w-3/4 shadow-gray-200 h-60 rounded-xl m-auto justify-center'
+    <div className='mt-20 w-2xs sm:max-w-sm md:max-w-md lg:max-w-lg m-auto  shadow-md opacity-80 h-65 p-2  rounded-xl  overflow-hidden justify-center '>
+        <form 
         onSubmit={handleSubmit}>
-            <h1 className='text-center font-medium text-2xl text-gray-600'>Fazer Login </h1>
-           <div className='text-center p-2 '>
+            <h1 className='text-center  pb-2 pt-1 font-medium text-3xl text-gray-600'> Login Ceagro</h1>
+           <div className='text-center p-2'>
             <InputText
-            className='w-3xs'
+            className='w-full'
             type="email"
             value={email}
             name="email" id="email" 
@@ -46,9 +49,9 @@ import { InputText } from "primereact/inputtext";
             />
             </div>
 
-           <div className='text-center p-2 '>
+           <div className='text-center p-2  '>
             <InputText
-            className='w-3xs'
+            className='w-full'
             value={password}
             type="password" 
             name="password" id="password" 
@@ -59,9 +62,12 @@ import { InputText } from "primereact/inputtext";
              </div>
            
            <div className='text-center'>
-            <button  className='text-center w-3xs p-1 bg-sky-500 hover:bg-sky-600 text-amber-50 min-w-2/4 rounded-sm'type="submit">Acessar</button>
+            <button  className='text-center  cursor-pointer w-3xs p-1 bg-sky-500 hover:bg-sky-600 text-amber-50 min-w-2/4 rounded-sm'type="submit">Acessar</button>
+            <Link to='/login/usuarios/cadastrarUsuarios' > Cadastre-se</Link>
            </div>
         </form>
+    </div>
+        
     )
 }
 
