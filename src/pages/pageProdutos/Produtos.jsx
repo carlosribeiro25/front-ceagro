@@ -40,6 +40,8 @@ export default function Produtos() {
                     <p>{produto.D2}</p>
                 </div>
             ))}
+
+
         </div>
     )
 }

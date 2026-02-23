@@ -12,7 +12,7 @@ function DataHoraAtual() {
   }, []);
 
   return (
-    <div>
+    <div >
       <h2>Data e Hora Atual</h2>
       <p>{dataHora.toLocaleDateString()}</p>
       <p>{dataHora.toLocaleTimeString()}</p>

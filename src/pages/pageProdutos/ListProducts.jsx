@@ -1,4 +1,3 @@
-// components/ListaProdutos.jsx
 import { useProdutos, useToggleRecebido } from '../../hooks/useProdutos'
 
 export function ListProduct() {
