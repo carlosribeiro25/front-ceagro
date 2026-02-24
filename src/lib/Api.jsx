@@ -1,9 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: window.location.hostname === 'localhost' 
-    ? 'http://localhost:3000'
-    : 'https://app-ceagro.fly.dev',
+  baseURL :'https://app-ceagro.fly.dev/',
     withCredentials: true
 });
 

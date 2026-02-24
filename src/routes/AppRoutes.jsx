@@ -14,6 +14,8 @@ import ListaProdutos from '../pages/pageProdutos/ListarProdutos'
 import { ListProduct } from '../pages/pageProdutos/ListProducts'
 import Recebidos from '../pages/pageProdutos/Recebidos'
 import Cadastro from '../pages/pageUsers/Cadastro'
+import { Layout } from '../components/Layout'
+
 
 export default function AppRoutes() {
     return (
@@ -21,56 +23,79 @@ export default function AppRoutes() {
             <Route path='/login' element={<Login />} />
             <Route path='/usuarios/cadastro' element={<Cadastro/>} />
 
+             
             <Route path='/' element={
                 <PrivateRoute>
+                    <Layout>
                     <HomePage />
+                    </Layout>
+                    
                 </PrivateRoute>
             } />
+            
 
             <Route path='/produtos' element={
                 <PrivateRoute>
+                    <Layout>
                     <Produtos />
+                    </Layout>              
                 </PrivateRoute>
             } />
 
             <Route path='/produtos/listarProdutos' element={
                 <PrivateRoute>
+                    <Layout>
                     <ListaProdutos />
+                    </Layout>
                 </PrivateRoute>
             } />
 
             <Route path='/produtos/listProduct' element={
                 <PrivateRoute>
+                    <Layout>
                     <ListProduct />
+                    </Layout>
+                    
                 </PrivateRoute>
             } />
 
             <Route path='/produtos/cadastrarProduto' element={
                 <PrivateRoute>
+                    <Layout>
                     <CriarProduto/>
+                    </Layout>
                 </PrivateRoute>
             } />
 
             <Route path='/produtos/deletarProduto' element={
                 <PrivateRoute>
+                    <Layout>
                     <DeletarProduto/>
+                    </Layout>
                 </PrivateRoute>
             } />
+
             <Route path='/produtos/recebidos' element={
                 <PrivateRoute>
+                    <Layout>
                     <Recebidos/>
+                    </Layout>
                 </PrivateRoute>
             } />
 
             <Route path='/produtos/atualizarProduto' element={
                 <PrivateRoute>
-                    <AtualizarProduto/>
+                    <Layout>
+                     <AtualizarProduto/>
+                    </Layout>
                 </PrivateRoute>
             } />
 
              <Route path='/usuarios' element={
                 <PrivateRoute>
-                    <Usuarios />
+                     <Layout>
+                        <Usuarios />
+                     </Layout>
                 </PrivateRoute>
             } />
 
@@ -82,19 +107,25 @@ export default function AppRoutes() {
 
              <Route path='usuarios/cadastrarUsuarios' element={
                 <PrivateRoute>
+                    <Layout>
                     <CriarUsuario/>
+                    </Layout>
                 </PrivateRoute>
             } />
 
             <Route path='/usuarios/atualizarUsuario' element={
                 <PrivateRoute>
-                    <AtualizarUsuario/>
+                    <Layout>
+                     <AtualizarUsuario/>
+                    </Layout>
                 </PrivateRoute>
             } />
 
             <Route path='/usuarios/deletarUsuario' element={
                 <PrivateRoute>
+                     <Layout>
                     <DeletarUsuario/>
+                     </Layout>
                 </PrivateRoute>
             } />
         </Routes>

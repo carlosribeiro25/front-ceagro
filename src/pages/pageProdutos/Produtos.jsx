@@ -27,7 +27,7 @@ export default function Produtos() {
     return (
         <div>
             
-             <Link to="/CreateProduct"> Cadastrar produto</Link>
+             <Link to="/produtos/cadast"> Cadastrar produto</Link>
              <Link to="/DeleteProduct"> Deletar produto</Link>
              <Link to="/UpdateProduct"> Atualizar produto</Link>
             
