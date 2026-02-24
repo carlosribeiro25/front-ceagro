@@ -13,11 +13,13 @@ import AtualizarUsuario from '../pages/pageUsers/AtualizarUsuario'
 import ListaProdutos from '../pages/pageProdutos/ListarProdutos'
 import { ListProduct } from '../pages/pageProdutos/ListProducts'
 import Recebidos from '../pages/pageProdutos/Recebidos'
+import Cadastro from '../pages/pageUsers/Cadastro'
 
 export default function AppRoutes() {
     return (
         <Routes>
             <Route path='/login' element={<Login />} />
+            <Route path='/usuarios/cadastro' element={<Cadastro/>} />
 
             <Route path='/' element={
                 <PrivateRoute>
@@ -78,7 +80,7 @@ export default function AppRoutes() {
                 </PrivateRoute>
             } />
 
-             <Route path='/login/usuarios/cadastrarUsuarios' element={
+             <Route path='usuarios/cadastrarUsuarios' element={
                 <PrivateRoute>
                     <CriarUsuario/>
                 </PrivateRoute>

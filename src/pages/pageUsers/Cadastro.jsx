@@ -3,12 +3,12 @@ import { useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const criarUsuario = async (usuario) => {
-    const { data } = await api.post('/usuarios', usuario)
+    const { data } = await api.post('/usuarios/cadastro', usuario)
     console.log(data)
     return data;
 }
 
-export default function CriarUsuario() {
+export default function Cadastro() {
     const queryClient = useQueryClient()
 
     const [form, setForm] = useState({
@@ -75,7 +75,7 @@ export default function CriarUsuario() {
             {mutation.isSuccess}
 
             {mutation.isError && (
-                <span className='text-red-600'> Erro ao cadastrar usuário </span>
+                <span className='text-red-600'> Erro ao cadastrar usuario</span>
             )}
 
             <form onSubmit={handleSubmit}>
@@ -116,7 +116,7 @@ export default function CriarUsuario() {
                     id="password"
                     value={form.password}
                     onChange={handleChange}
-                    placeholder='Mínimo 8 caracteres'
+                    placeholder='Minimo 8 caracteres'
                     required
                 />
 
@@ -128,7 +128,6 @@ export default function CriarUsuario() {
                     onChange={handleChange}
                     required>
                     <option value="">Selecionar</option>
-                    <option value="Manager">Manager</option>
                     <option value="Client">Client</option>
                 </select>
 
