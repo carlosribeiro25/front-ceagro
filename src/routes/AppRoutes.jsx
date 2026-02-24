@@ -97,12 +97,6 @@ export default function AppRoutes() {
                     <DeletarUsuario/>
                 </PrivateRoute>
             } />
-
-
-            
-
-
-            
         </Routes>
     )
 }

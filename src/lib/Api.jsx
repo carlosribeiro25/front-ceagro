@@ -1,9 +1,11 @@
 import axios from "axios";
 
 export const api = axios.create({
-    baseURL: 'https://app-ceagro.fly.dev',
+  baseURL: window.location.hostname === 'localhost' 
+    ? 'http://localhost:3000'
+    : 'https://app-ceagro.fly.dev',
     withCredentials: true
-})
+});
 
 api.interceptors.request.use(
     (config) => {

@@ -2,9 +2,6 @@ import { useEffect } from "react"
 import { api } from "../lib/Api"
 import { useNavigate, Link, href } from "react-router-dom"
 import { Menubar } from 'primereact/menubar';
-import { Avatar } from 'primereact/avatar';
-
-
 
 export default function HomePage() {
     const navigate = useNavigate()
@@ -84,20 +81,16 @@ const items = [
             icon: 'pi pi-envelope'
         }
     ];
-
-   
-
     return (
         <>
             <div className="card flex ml-1 mt-2 mr-2 mb-1  justify-between">
             <Menubar model={items} />
-            <Avatar image="/images/avatar/amyelsner.png" size="large" shape="circle" />
-
-
             </div>
             <Link to="/produtos">Produtos</Link>
             <Link to="/login">Fazer lofin</Link>
             <h1>Ben vindo a nossa pagina</h1>
+
+           
 
         </>
     )
