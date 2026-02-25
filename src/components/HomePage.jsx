@@ -3,6 +3,7 @@ import { api } from "../lib/Api"
 import { useNavigate, Link } from "react-router-dom"
 import Header from "./Header"
 import Dock from "./Dock"
+import { ListProduct } from "../pages/pageProdutos/ListProducts"
 
 export default function HomePage() {
     const navigate = useNavigate()
@@ -16,7 +17,7 @@ export default function HomePage() {
                 return
             }
             try {
-                await api.get('/', {
+                await api.get('/produtos/listProduct', {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
@@ -39,6 +40,7 @@ export default function HomePage() {
         <>
            
             <Header/>
+            <ListProduct/>
             <Dock/>
 
 

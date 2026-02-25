@@ -2,7 +2,6 @@ import { Routes, Route } from 'react-router-dom'
 import Login from "../components/login"
 import PrivateRoute from "../components/PrivateRoutes"
 import Produtos from '../pages/pageProdutos/Produtos'
-import HomePage from '../components/HomePage'
 import Usuarios from '../pages/pageUsers/Usuarios'
 import CriarProduto from '../pages/pageProdutos/criarProduto'
 import DeletarProduto from '../pages/pageProdutos/deletarProduto'
@@ -27,7 +26,7 @@ export default function AppRoutes() {
             <Route path='/' element={
                 <PrivateRoute>
                     <Layout>
-                    <HomePage />
+                    <ListProduct />
                     </Layout>
                     
                 </PrivateRoute>

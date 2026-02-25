@@ -1,10 +1,11 @@
 import { api } from "../../lib/Api";
 import { useQueryClient, useMutation, useQuery } from "@tanstack/react-query";
 import DataHoraAtual from "../../components/DataHoraAtual";
+import Header from "../../components/Header";
 
 const buscarProdutos = async () => {
   const { data } = await api.get(`/produtos`);
-  return data.produtos ?? data; 
+  return data.produtos ?? data;
 };
 
 const atualizarStatus = async ({ id, recebido }) => {
@@ -52,7 +53,7 @@ export default function Recebidos() {
   const handleToggle = (produto) => {
     mutation.mutate({
       id: produto.id,
-      recebido: !produto.recebido, 
+      recebido: !produto.recebido,
     });
   };
 
@@ -61,26 +62,47 @@ export default function Recebidos() {
 
   return (
     <div>
+      <Header />
       <DataHoraAtual />
 
-      {produtos?.map((produto) => (
-        <div key={produto.id} style={{ marginBottom: "1rem" }}>
-          <p><strong>ID:</strong> {produto.id}</p>
-          <p><strong>Nome:</strong> {produto.name}</p>
-          <p><strong>Quantidade:</strong> {produto.QNT}</p>
-          <p><strong>D1:</strong> {produto.D1}</p>
-          <p><strong>D2:</strong> {produto.D2}</p>
+      <div className="bg-amber-">
+        <table className="table-auto border-collapse border border-gray-700 w-full text-sm">
+          <thead className="border-collapse border border-gray-700 ">
+            <tr >
+              <th className="px-2 py-1 text-sm text-accent text-left border-collapse border border-gray-800">Id</th>
+              <th className="px-2 py-1 text-base text-left text-accent border-collapse border border-gray-800">Produto</th>
+              <th className="px-2 py-1 text-sm text-left text-accent border-collapse border border-gray-800">QNT</th>
+              <th className="px-2 py-1 text-left text-accent border-collapse border border-gray-800">D1</th>
+              <th className="px-2 py-1 text-left text-accent border-collapse border border-gray-800">D2</th>
+              <th className="px-2 py-1 text-left text-accent border-collapse border border-gray-800" >OK</th>
+            </tr>
+          </thead>
 
-          <label htmlFor={`recebido-${produto.id}`}>OK</label>
-          <input
-            id={`recebido-${produto.id}`}
-            type="checkbox"
-            checked={!!produto.recebido}
-            onChange={() => handleToggle(produto)}
-            disabled={mutation.isPending} 
-          />
-        </div>
-      ))}
+          <tbody className="">
+            {produtos.map((produto) => (
+              <tr key={produto.id}>
+                <td className="px-4 py-1 text-left border-collapse border border-gray-800">{produto.id}</td>
+                <td className="px-4 py-1 text-base border-collapse border border-gray-800">{produto.name}</td>
+                <td className="px-4 py-2 text-balance border-collapse border border-gray-800">{produto.QNT}</td>
+                <td className="px-4 py-2 text-left border-collapse border border-gray-800">{produto.D1}</td>
+                <td className="px-4 py-2 text-left border-collapse border border-gray-800">{produto.D2}</td>
+                <td className="px-4 py-2 text-left border-collapse border border-gray-800">
+                  <label htmlFor={`recebido-${produtos.id}`}></label>
+                  <input
+                  width={30}
+                    id={`recebido-${produto.id}`}
+                    type="checkbox"
+                    checked={!!produto.recebido}
+                    onChange={() => handleToggle(produto)}
+                    disabled={mutation.isPending}
+                  />
+                </td>
+
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
-  );
+  )
 }

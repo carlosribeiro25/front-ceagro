@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 export default function Header() {
     return (
         <>
-            <section className="navbar  m-0 bg-base-100 shadow-sm flex justify-between">
+            <section className="navbar items-center bg-base-100 shadow-sm flex justify-between">
                 <div className="navbar-start ">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-circle swap swap-rotate">
@@ -22,7 +22,7 @@ export default function Header() {
                             </svg>
                         </label >
                         <ul
-                            className="menu dropdown-content bg-base-100 rounded-box z-1 mt-3 w-60  p-2 shadow">
+                            className="menu dropdown-content bg-base-100 rounded z-1 mt-3 w-60  p-2 shadow">
                             <li><Link to="/produtos">Produtos</Link></li>
                             <li><Link to="/produtos/listarProdutos">Compras da semana</Link ></li>
                             <li><Link to="/produtos/recebidos">Recebidos</Link></li>
@@ -36,7 +36,6 @@ export default function Header() {
 
                 <div className="navbar-end">
                     <div className="flex gap-2">
-                        <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
                         <div className="dropdown dropdown-end">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
@@ -47,15 +46,10 @@ export default function Header() {
                             </div>
                             <ul
                                 tabIndex="-1"
-                                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                                <li>
-                                    <a className="justify-between">
-                                        Profile
-                                        <span className="badge">New</span>
-                                    </a>
-                                </li>
-                                <li><a>Settings</a></li>
-                                <li><a>Logout</a></li>
+                                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-15 p-0 shadow">
+                                <li><Link className="justify-between"> Profile</Link></li>
+                                <li><Link>Settings</Link></li>
+                                <li><Link>Logout</Link></li>
                             </ul>
                         </div>
                     </div>

@@ -1,18 +1,18 @@
 
-import { useState } from 'react'
 import { api } from '../lib/Api';
 import { useNavigate } from 'react-router-dom'
-import { InputText } from "primereact/inputtext";
 import { Link } from 'react-router-dom';
 import Logo from '../components/Logo'
 import { GoogleLogin } from "@react-oauth/google";
+import { InputText } from 'primereact/inputtext';
 import { Password } from 'primereact/password';
-
+import { useState } from "react";
 
 export default function Login() {
-
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+
     const navigate = useNavigate()
 
     const handleSubmit = async (event) => {
@@ -49,20 +49,22 @@ export default function Login() {
                     <div className='p-1 flex flex-col mt-1 gap-0'>
                         <label className='text-sm font-medium text-gray-500' htmlFor="email">E-mail</label>
                         <InputText
-                            className='w-full focus:outline-none '
+                            
+                            className='w-full '
                             type="email"
                             value={email}
                             name="email" id="email"
                             placeholder="Seu@email.com"
                             required
                             onChange={(e) => setEmail(e.target.value)}
-                        />
+                             />
+
                     </div>
 
                     <div className='p-1 flex flex-col'>
                         <label className='text-sm font-medium text-gray-500' htmlFor="password">Senha</label>
-                        <div >
-                            <Password
+                        <Password
+                                
                                 value={password}
                                 type="password"
                                 name="password" id="password"
@@ -71,10 +73,7 @@ export default function Login() {
                                 onChange={(e) => setPassword(e.target.value)}
                                 toggleMask
                             />
-                        </div>
-
-                        <p className='text-xs mt-1 text-gray-300'>Minimo 8 caracters</p>
-
+                        
                     </div>
 
                     <button className='w-full text-center font-semibold p-2  cursor-pointer mt-2  bg-sky-500 hover:bg-sky-600 text-amber-50 min-w-2/4 rounded-sm' type="submit">Acessar</button>
@@ -90,9 +89,10 @@ export default function Login() {
                             try {
                                 const { data } = await api.post('/auth/google', {
                                     credential: credentialResponse.credential
+                                    
                                 });
 
-                                console.log('resposta do backend:', data)
+                                
                                 if (!data.token) {
                                     alert("Erro: token não recebido")
                                     return
@@ -108,9 +108,11 @@ export default function Login() {
                             console.log("Falha ao fazer login")
                         }}
                     />
+                    
 
                 </form>
             </section>
+            
 
         </div>
 

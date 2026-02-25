@@ -1,6 +1,8 @@
 import { api } from "../../lib/Api";
 import { useState } from "react";
 import { useQueryClient, useMutation, useQuery } from "@tanstack/react-query";
+import Header from "../../components/Header";
+import Dock from "../../components/Dock";
 
 const buscarProdutos = async () => {
     const { data } = await api.get("/produtos");
@@ -74,6 +76,10 @@ function ProdutoRow({ produto }) {
     };
 
     return (
+        
+        
+        
+       
         <tr className="gap-2">
             <td >{produto.id}</td>
 
@@ -134,10 +140,13 @@ function ProdutoRow({ produto }) {
                 )}
             </td>
         </tr>
+         
     );
 }
 
 export default function ListaProdutos() {
+
+    
     const { data: produtos, isLoading, isError, error } = useQuery({
         queryKey: ["produtos"],
         queryFn: buscarProdutos,
@@ -154,6 +163,8 @@ export default function ListaProdutos() {
 
     return (
         <div>
+            <Header/>
+        <Dock/>
             <h1>Produtos</h1>
 
             <table>
@@ -175,4 +186,4 @@ export default function ListaProdutos() {
             </table>
         </div>
     );
-}
+}  
