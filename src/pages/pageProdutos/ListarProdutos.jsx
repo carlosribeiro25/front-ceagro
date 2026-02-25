@@ -163,7 +163,7 @@ export default function ListaProdutos() {
 
     return (
         <div>
-            <Header/>
+        <Header/>
         <Dock/>
             <h1>Produtos</h1>
 

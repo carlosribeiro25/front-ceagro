@@ -69,7 +69,7 @@ export default function Recebidos() {
         <table className="table-auto border-collapse border border-gray-700 w-full text-sm">
           <thead className="border-collapse border border-gray-700 ">
             <tr >
-              <th className="px-2 py-1 text-sm text-accent text-left border-collapse border border-gray-800">Id</th>
+             <th className="px-2 py-1 text-sm text-accent text-left border-collapse border border-gray-800">Id</th>
               <th className="px-2 py-1 text-base text-left text-accent border-collapse border border-gray-800">Produto</th>
               <th className="px-2 py-1 text-sm text-left text-accent border-collapse border border-gray-800">QNT</th>
               <th className="px-2 py-1 text-left text-accent border-collapse border border-gray-800">D1</th>
@@ -78,7 +78,7 @@ export default function Recebidos() {
             </tr>
           </thead>
 
-          <tbody className="">
+          <tbody>
             {produtos.map((produto) => (
               <tr key={produto.id}>
                 <td className="px-4 py-1 text-left border-collapse border border-gray-800">{produto.id}</td>
