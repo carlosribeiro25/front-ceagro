@@ -13,7 +13,6 @@ api.interceptors.request.use(
             config.headers.Authorization = `Bearer ${token}`
         }
 
-        console.time(`[API] ${config.method?.toUpperCase()} ${config.url}`)
 
         return config;
     },

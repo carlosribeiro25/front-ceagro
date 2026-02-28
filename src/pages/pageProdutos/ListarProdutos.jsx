@@ -77,33 +77,30 @@ function ProdutoRow({ produto }) {
 
     return (
         
-        
-        
-       
         <tr className="gap-2">
-            <td >{produto.id}</td>
+            <td className="px-1 py-1 text-left border-collapse border border-gray-800" >{produto.id}</td>
 
-            <td >
+            <td className="px-1 py-1 text-left border-collapse border border-gray-800">
                 {editando
-                    ? <input name="name" value={form.name} onChange={handleChange} />
+                    ? <input className="w-full min-w-0" name="name" value={form.name} onChange={handleChange} />
                     : produto.name
                 }
             </td>
-            <td>
+            <td className="px-1 py-1 text-left border-collapse border border-gray-800">
                 {editando
-                    ? <input name="QNT" value={form.QNT} onChange={handleChange} />
+                    ? <input className="w-full min-w-0" name="QNT" value={form.QNT} onChange={handleChange} />
                     : produto.QNT
                 }
             </td>
-            <td>
+            <td className="px-1 py-1 text-left border-collapse border border-gray-800">
                 {editando
-                    ? <input name="D1" value={form.D1} onChange={handleChange} />
+                    ? <input className="w-full min-w-0" name="D1" value={form.D1} onChange={handleChange} />
                     : produto.D1
                 }
             </td>
-            <td>
+            <td className="px-1 py-1 text-left border-collapse border border-gray-800">
                 {editando
-                    ? <input name="D2" value={form.D2} onChange={handleChange} />
+                    ? <input className="w-full min-w-0" name="D2" value={form.D2} onChange={handleChange} />
                     : produto.D2
                 }
             </td>
@@ -119,14 +116,14 @@ function ProdutoRow({ produto }) {
             <td>
                 {editando ? (
                     <>
-                        <button
+                        <button className="px-1 py-1 text-green-300 font-semibold "
                             onClick={handleSalvar}
                             disabled={mutation.isPending}
                         >
                             {mutation.isPending ? "Salvando…" : "Salvar"}
                         </button>
 
-                        <button
+                        <button className="px-1 py-1 text-red-400 "
                             onClick={handleCancelar}
                             disabled={mutation.isPending}
                         >
@@ -160,20 +157,20 @@ export default function ListaProdutos() {
     );
 
     return (
-        <div>
+        <div className="">
         <Header/>
-        <Dock/>
+        
             <h1>Produtos</h1>
 
-            <table>
-                <thead>
+            <table className=" overflow-hidden table-auto border-collapse border border-gray-700 w-full text-xs sm:text-sm" >
+                <thead className="border-collapse border border-gray-700">
                     <tr>
-                        <th>ID</th>
-                        <th>Nome</th>
-                        <th>QNT</th>
-                        <th>D1</th>
-                        <th>D2</th>
-                        <th>Ações</th>
+                        <th className="px-1 py-1 text-left text-accent border-collapse border border-gray-800">ID</th>
+                        <th className="px-1 py-1 text-left text-accent border-collapse border border-gray-800">Nome</th>
+                        <th className="px-1 py-1 text-left text-accent border-collapse border border-gray-800">QNT</th>
+                        <th className="px-1 py-1 text-left text-accent border-collapse border border-gray-800">D1</th>
+                        <th className="px-1 py-1 text-left text-accent border-collapse border border-gray-800">D2</th>
+                        <th className="px-1 py-1 text-left text-accent border-collapse border border-gray-800">Ações</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -69,7 +69,7 @@ export default function Recebidos() {
 
       <div className=" w-full">
         <table className="table-auto border-collapse border border-gray-700 w-full text-xs sm:text-sm">
-          <thead className="border-collapse border border-gray-700 ">
+          <thead className="border-collapse border border-gray-700">
             <tr >
               <th className="px-1 py-1 text-left text-accent border-collapse border border-gray-800">Id</th>
               <th className="px-1 py-1 text-left text-accent border-collapse border border-gray-800">Produto</th>

@@ -6,18 +6,16 @@ export default function NavProdutos() {
 
             <NavLink to="/produtos"
             end
-                className={({ isActive, isTransitioning  }) =>
+                className={({ isActive }) =>
                     isActive
                         ? "border-b-4 border-accent text-accent"
                         : ""
-                        
-                    
                 }>
                 Produtos
             </NavLink>
 
             <NavLink to="/produtos/cadastrar"
-                className={({ isActive, isTransitioning  }) =>
+                className={({ isActive }) =>
                     isActive
                         ? "border-b-4 border-accent text-accent"
                         : ""
@@ -25,9 +23,6 @@ export default function NavProdutos() {
                 }>
                 Cadastrar
             </NavLink>
-
-             
-            
 
             <NavLink to="/produtos/deletar"
                 className={({ isActive }) =>
