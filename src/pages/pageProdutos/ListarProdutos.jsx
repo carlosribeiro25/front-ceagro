@@ -145,8 +145,6 @@ function ProdutoRow({ produto }) {
 }
 
 export default function ListaProdutos() {
-
-    
     const { data: produtos, isLoading, isError, error } = useQuery({
         queryKey: ["produtos"],
         queryFn: buscarProdutos,

@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const api = axios.create({
   baseURL :'https://app-ceagro.fly.dev/',
-    withCredentials: true
+  withCredentials: true
 });
 
 api.interceptors.request.use(
@@ -12,6 +12,8 @@ api.interceptors.request.use(
         if (token) {
             config.headers.Authorization = `Bearer ${token}`
         }
+
+        console.time(`[API] ${config.method?.toUpperCase()} ${config.url}`)
 
         return config;
     },

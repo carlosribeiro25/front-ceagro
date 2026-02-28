@@ -1,6 +1,7 @@
 import { api } from '../../lib/Api'
 import { useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import Header from '../../components/Header';
 
 const criarProduto = async (produto) => {
     const { data } = await api.post('/produtos', produto)
@@ -8,7 +9,7 @@ const criarProduto = async (produto) => {
     return (data);
 }
 
-export default function CriarUsuario() {
+export default function CriarProduto() {
     const queryClient = useQueryClient()
 
     const [form, setForm] = useState({
@@ -25,9 +26,7 @@ export default function CriarUsuario() {
         onSuccess: (data) => {
             console.log("Produto criado:", data)
             queryClient.invalidateQueries({ queryKey: ['produtos'] });
-
             setForm({ name: "", QNT: "", D1: "", D2: "" })
-            
             alert("Produto cadastrado com sucesso.");
         },
 
@@ -54,6 +53,7 @@ export default function CriarUsuario() {
 
     return (
         <div>
+            <Header/>
             <h1> Novo produto</h1>
             {mutation.isSuccess }
 

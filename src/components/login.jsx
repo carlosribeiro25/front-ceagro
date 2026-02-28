@@ -12,7 +12,6 @@ export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-
     const navigate = useNavigate()
 
     const handleSubmit = async (event) => {
@@ -38,7 +37,7 @@ export default function Login() {
     return (
         <div className='min-h-screen flex items-center justify-center p-2'>
 
-            <section className='w-full max-w-sm  bg-gray-800  m-auto p-6 shadow-xl opacity-90 rounded-xl  overflow-hidden  '>
+            <section className='w-full max-w-sm  m-auto p-6 shadow-xl opacity-90 rounded-xl  overflow-hidden  '>
                 <form
                     onSubmit={handleSubmit}>
                     <div className='flex gap-14 items-center mb-2 '>
@@ -48,8 +47,7 @@ export default function Login() {
 
                     <div className='p-1 flex flex-col mt-1 gap-0'>
                         <label className='text-sm font-medium text-gray-500' htmlFor="email">E-mail</label>
-                        <InputText
-                            
+                        <InputText          
                             className='w-full '
                             type="email"
                             value={email}
@@ -64,7 +62,6 @@ export default function Login() {
                     <div className='p-1 flex flex-col'>
                         <label className='text-sm font-medium text-gray-500' htmlFor="password">Senha</label>
                         <Password
-                                
                                 value={password}
                                 type="password"
                                 name="password" id="password"
@@ -85,11 +82,9 @@ export default function Login() {
 
                     <GoogleLogin width={340} text="signin_with"
                         onSuccess={async (credentialResponse) => {
-                            console.log('credential recebida:', credentialResponse.credential)
                             try {
                                 const { data } = await api.post('/auth/google', {
                                     credential: credentialResponse.credential
-                                    
                                 });
 
                                 

@@ -9,7 +9,16 @@ import 'primereact/resources/themes/lara-light-indigo/theme.css'
 import 'primereact/resources/primereact.min.css'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 
-const queryClient = new QueryClient
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 *5,
+      gcTime: 1000 * 60 * 10,
+      retry: 2,
+      refetchOnWindowFocus: false,
+    }
+  }
+})
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

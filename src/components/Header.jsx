@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom"
+import { NavLink, Link} from "react-router-dom"
 
 export default function Header() {
     return (
         <>
-            <section className="navbar items-center bg-base-100 shadow-sm flex justify-between">
+            <section className="navbar items-center w-full bg-base-200 shadow-sm flex justify-between">
                 <div className="navbar-start ">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-circle swap swap-rotate">
@@ -21,16 +21,21 @@ export default function Header() {
                                     points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49" />
                             </svg>
                         </label >
-                        <ul
-                            className="menu dropdown-content bg-base-100 rounded z-1 mt-3 w-60  p-2 shadow">
-                            <li><Link to="/produtos">Produtos</Link></li>
-                            <li><Link to="/produtos/listarProdutos">Compras da semana</Link ></li>
-                            <li><Link to="/produtos/recebidos">Recebidos</Link></li>
+                        <ul className="menu dropdown-content bg-base-100 rounded z-1 mt-3 w-60  p-2 shadow">
+                            
+                            <li><NavLink to="/">Home </NavLink></li>
+                            <li><NavLink to="/produtos">Produtos </NavLink></li>
+                            <li><NavLink to="/produtos/listarProdutos">Compras da semana</NavLink ></li>
+                            <li><NavLink to="/produtos/recebidos">Recebidos </NavLink></li>
+
                         </ul>
+                            
+                        
 
 
                     </div>
                 </div>
+                
 
                 <h1 className=" text-accent text-2xl font-medium">Ceagro</h1>
 
@@ -54,9 +59,8 @@ export default function Header() {
                         </div>
                     </div>
                 </div>
+
             </section>
-
-
 
         </>
     )

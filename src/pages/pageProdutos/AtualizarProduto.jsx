@@ -1,6 +1,8 @@
 import { api } from "../../lib/Api";
 import { useState } from "react";
 import { useQueryClient, useMutation, useQuery } from "@tanstack/react-query";
+import Header from "../../components/Header";
+import Dock from "../../components/Dock";
 
 const buscarProdutoPorId = async (id) => {
     const { data } = await api.get(`/produtos/${id}`);
@@ -87,10 +89,13 @@ export default function AtualizarProduto() {
     
     return (
         <div>
+            <Header/>
+            <Dock/>
+
             <h1>Atualizar Produto</h1>
 
             <form onSubmit={handleBuscar}>
-                <label htmlFor="buscaId">Buscar por ID</label>
+                <label htmlFor="buscaId">Digite o id do produto</label>
                 <input
                     id="buscaId"
                     type="number"
@@ -118,10 +123,6 @@ export default function AtualizarProduto() {
                        ID: {idAtivo} — Produto <strong>{produtoEncontrado.produto.name}</strong>                                     
                     </p>
 
-                    <p>
-                        Nome:<strong>{produtoEncontrado.name}</strong>                      
-                    </p>
-
                     </div>
                     
                     <label htmlFor="name">Nome</label>
@@ -132,7 +133,7 @@ export default function AtualizarProduto() {
                         value={form.name}
                         onChange={handleChange}
                         placeholder="Nome do produto"
-                        required
+                       
                     />
 
                     <label htmlFor="QNT">Quantidade</label>
@@ -143,7 +144,7 @@ export default function AtualizarProduto() {
                         value={form.QNT}
                         onChange={handleChange}
                         placeholder="Quantidade"
-                        required
+                        
                     />
 
                     <label htmlFor="D1">D1</label>
