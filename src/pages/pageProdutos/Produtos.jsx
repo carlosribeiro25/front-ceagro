@@ -4,6 +4,7 @@ import { api } from "../../lib/Api"
 import { NavLink } from "react-router-dom";
 import Header from "../../components/Header";
 import Dock from "../../components/Dock";
+import NavProdutos from "../../components/NavProdutos";
 
 // import TestPagination from "../../components/TestPagination";
 
@@ -33,36 +34,8 @@ export default function Produtos() {
     return (
         <div>
             <Header />
-            {/* <QueryClientProvider client={queryClient}>
-                <TestPagination/>
-            </QueryClientProvider> 
-            
-            ,QueryClient, QueryClientProvider*/}
-            <nav className="flex gap-2 mb-2 mt-1">
-                <NavLink to="/produtos/cadastrar"
-                    className={({ isActive }) =>
-                        isActive
-                            ? "to-blue-400 border-b-4 border-blue-500 p-1"
-                            : ""
-                    }>Cadastrar</NavLink>
-                <NavLink to="/produtos/deletar">Deletar</NavLink>
-                <NavLink to="/produtos/atualizar">Atualizar</NavLink>
-            </nav>
-
-            <div className="dropdown dropdown-hover">
-                <div tabIndex={0} role="button" className="btn m-1">Hover</div>
-                <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                    <li><NavLink to="/produtos/cadastrar"
-                    className={({ isActive }) =>
-                        isActive
-                            ? "to-blue-400 border-b-4 border-blue-500 p-1"
-                            : ""
-                    }>Cadastrar</NavLink></li>
-
-                    <li><NavLink to="/produtos/deletar">Deletar</NavLink></li>
-                    <li><NavLink to="/produtos/atualizar">Atualizar</NavLink></li>
-                </ul>
-            </div>
+            <NavProdutos />
+           
 
             <table>
                 <tr>

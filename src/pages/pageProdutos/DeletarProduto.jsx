@@ -2,6 +2,10 @@ import { api } from "../../lib/Api";
 import { useQueryClient, useMutation, useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import NavProdutos from "../../components/NavProdutos";
+import Header from "../../components/Header";
+import Dock from "../../components/Dock";
+
 
 const buscarProdutosPorId = async (id) => {
     const { data } = await api.get(`/produtos/${id}`);
@@ -75,9 +79,12 @@ export default function DeletarProduto() {
     };
 
     return (
-        <div>
+        <div>           
+           <Header/>
+           <NavProdutos/>
+           <Dock/>
+
             <h1>Deletar Produto</h1>
-            <Link to="/produtos">Produtos</Link>
 
             <form onSubmit={handleBuscar}>
                 <label htmlFor="buscaId">Buscar por ID</label>

@@ -2,6 +2,8 @@ import { api } from '../../lib/Api'
 import { useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import Header from '../../components/Header';
+import NavProdutos from '../../components/NavProdutos';
+import Dock from '../../components/Dock';
 
 const criarProduto = async (produto) => {
     const { data } = await api.post('/produtos', produto)
@@ -54,6 +56,8 @@ export default function CriarProduto() {
     return (
         <div>
             <Header/>
+            <NavProdutos/>
+            <Dock/>
             <h1> Novo produto</h1>
             {mutation.isSuccess }
 

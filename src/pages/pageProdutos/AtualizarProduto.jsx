@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useQueryClient, useMutation, useQuery } from "@tanstack/react-query";
 import Header from "../../components/Header";
 import Dock from "../../components/Dock";
+import NavProdutos from "../../components/NavProdutos";
 
 const buscarProdutoPorId = async (id) => {
     const { data } = await api.get(`/produtos/${id}`);
@@ -90,6 +91,7 @@ export default function AtualizarProduto() {
     return (
         <div>
             <Header/>
+            <NavProdutos/>
             <Dock/>
 
             <h1>Atualizar Produto</h1>
