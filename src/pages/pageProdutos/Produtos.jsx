@@ -38,13 +38,15 @@ export default function Produtos() {
            
 
             <table>
-                <tr>
+               <thead>
+                 <tr>
                     <th>ID</th>
                     <th>Produto</th>
                     <th>Quantidade</th>
                     <th>Divina1</th>
                     <th>Divina2</th>
                 </tr>
+               </thead>
 
                 <tbody>
                     {data.map((produto) => (

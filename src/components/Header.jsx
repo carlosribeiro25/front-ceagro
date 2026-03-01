@@ -1,8 +1,12 @@
 import { NavLink, Link} from "react-router-dom"
+import {useAuth} from './AuthProvider'
+
 
 export default function Header() {
-    return (
+     const {logout} = useAuth()
+    return (        
         <>
+        
             <section className="navbar items-center w-full bg-base-200 shadow-sm flex justify-between">
                 <div className="navbar-start ">
                     <div className="dropdown">
@@ -45,6 +49,7 @@ export default function Header() {
                                     <img
                                         alt="Tailwind CSS Navbar component"
                                         src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                        
                                 </div>
                             </div>
                             <ul
@@ -52,7 +57,7 @@ export default function Header() {
                                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-15 p-0 shadow">
                                 <li><Link className="justify-between"> Profile</Link></li>
                                 <li><Link>Settings</Link></li>
-                                <li><Link>Logout</Link></li>
+                                <li><Link onClick={logout}>Logout</Link></li>
                             </ul>
                         </div>
                     </div>

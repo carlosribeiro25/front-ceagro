@@ -1,4 +1,4 @@
-import healthyfood from '../assets/healthyfood.png'
+import healthyfood from '../assets/healthy-food.webp'
 
 export default function Logo() {
     return (

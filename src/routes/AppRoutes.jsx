@@ -19,7 +19,7 @@ import CriarProduto from '../pages/pageProdutos/CriarProduto'
 export default function AppRoutes() {
     return (
         <Routes>
-            <Route path='/login' element={<Login />} />
+            <Route path='/login' element={<Login />} />  
             <Route path='/usuarios/cadastro' element={<Cadastro/>} />
 
             <Route path='/' element={
@@ -29,8 +29,8 @@ export default function AppRoutes() {
                     </Layout>
                     
                 </PrivateRoute>
-            } />         
-
+            } />     
+               
             <Route path='/produtos' element={
                 <PrivateRoute>
                     <Layout>

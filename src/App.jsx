@@ -1,10 +1,13 @@
 import AppRoutes from './routes/AppRoutes';
+import AuthProvider from './components/AuthProvider';
 
 export default function App() {
     return (
         <div>
-            <AppRoutes />
+            <AuthProvider>
+                <AppRoutes />
+            </AuthProvider>
         </div>
-        
+
     )
 }

@@ -35,10 +35,10 @@ export default function Login() {
     }
 
     return (
-        <div className='min-h-screen flex items-center justify-center p-2'>
+        <div className='min-h-screen flex items-center justify-center'>
 
-            <section className='w-full max-w-sm  m-auto p-6 shadow-xl opacity-90 rounded-xl  overflow-hidden  '>
-                <form
+            <section className='min-h-screen flex items-center justify-center  w-full max-w-sm  m-auto p-6 shadow-xl opacity-90 rounded-xl  overflow-hidden  '>
+                <form 
                     onSubmit={handleSubmit}>
                     <div className='flex gap-14 items-center mb-2 '>
                         <Logo />
@@ -48,7 +48,7 @@ export default function Login() {
                     <div className='p-1 flex flex-col mt-1 gap-0'>
                         <label className='text-sm font-medium text-gray-500' htmlFor="email">E-mail</label>
                         <InputText          
-                            className='w-full '
+                        
                             type="email"
                             value={email}
                             name="email" id="email"
@@ -62,6 +62,7 @@ export default function Login() {
                     <div className='p-1 flex flex-col'>
                         <label className='text-sm font-medium text-gray-500' htmlFor="password">Senha</label>
                         <Password
+                        className='w-full'
                                 value={password}
                                 type="password"
                                 name="password" id="password"
